@@ -14,6 +14,10 @@ class DogBloc extends Bloc<DogEvent, DogState> {
     on<SetBreedsEvent>((event, emit) {
      emit(state.copyWith( listBreeds: event.listBreeds ));
     });
+
+    on<SetRandomImagesEvent>((event, emit) {
+     emit(state.copyWith( imagesDogs: event.randomImages ));
+    });
     loadData();
   }
 
@@ -21,8 +25,15 @@ class DogBloc extends Bloc<DogEvent, DogState> {
 
 
    loadData() async {
-    final listBreeds = await dogsRespository.getAllBreeds();
-    add( SetBreedsEvent( listBreeds ) );
+    //final listBreeds = await dogsRespository.getAllBreeds();
+    //final randomImages = await dogsRespository.getRandomImagesOfDogs();
+
+     final response = await Future.wait([
+      dogsRespository.getAllBreeds(),
+      dogsRespository.getRandomImagesOfDogs()
+    ]);
+    add( SetBreedsEvent( response[0] ) );
+    add( SetRandomImagesEvent(response[1]) );
   }
 
 }

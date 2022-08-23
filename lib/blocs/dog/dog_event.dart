@@ -10,3 +10,10 @@ class SetBreedsEvent extends DogEvent{
 
   SetBreedsEvent(this.listBreeds);
 }
+
+
+class SetRandomImagesEvent extends DogEvent{
+  final List<String> randomImages;
+
+  SetRandomImagesEvent(this.randomImages);
+}
