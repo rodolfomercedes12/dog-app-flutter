@@ -36,6 +36,9 @@ class BreedList extends StatelessWidget {
                                 ListTile(
                                   onTap: () {
                                     //TODO: CREAR EVENTO PARA CAMBIAR LA RAZA SELECCIONADA
+                                    final dogBloc = BlocProvider.of<DogBloc>(context);
+
+                                    dogBloc.add( BreedSelectedEvent( breed ) );
                                     Navigator.pop(context);
                                   },
                                   leading: const CircleAvatar(

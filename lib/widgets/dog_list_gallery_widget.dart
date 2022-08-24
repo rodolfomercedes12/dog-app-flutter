@@ -25,10 +25,7 @@ class DogList extends StatelessWidget {
                         return ClipRRect(
                           borderRadius: BorderRadius.circular(20.0),
                           child: Container(
-                            child: Image.network(
-                              imgDog,
-                              fit: BoxFit.cover,
-                            ),
+                            child: FadeInImage(placeholder: AssetImage("assets/pet.png"), image: NetworkImage(imgDog,), fit: BoxFit.cover,)
                           ),
                         );
                       },

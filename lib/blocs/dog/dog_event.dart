@@ -17,3 +17,10 @@ class SetRandomImagesEvent extends DogEvent{
 
   SetRandomImagesEvent(this.randomImages);
 }
+
+
+class BreedSelectedEvent extends DogEvent{
+  final String breedSelected;
+
+  BreedSelectedEvent(this.breedSelected);
+}

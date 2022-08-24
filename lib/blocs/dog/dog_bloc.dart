@@ -18,6 +18,12 @@ class DogBloc extends Bloc<DogEvent, DogState> {
     on<SetRandomImagesEvent>((event, emit) {
      emit(state.copyWith( imagesDogs: event.randomImages ));
     });
+
+    on<BreedSelectedEvent>((event, emit) async {
+      final randomImages = await dogsRespository.getRandomImagesOfDogsByBreed( event.breedSelected );
+      emit( state.copyWith( selectedBreed: event.breedSelected, imagesDogs: randomImages ) );
+    });
+
     loadData();
   }
 
