@@ -2,7 +2,6 @@ import 'package:dogs_app_flutter/widgets/breed_list_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../blocs/dog/dog_bloc.dart';
 
 class TitleAndBreedList extends StatelessWidget {
@@ -13,9 +12,8 @@ class TitleAndBreedList extends StatelessWidget {
     return Column(
       children: [
         Text("Dogs App",
-            style:
-                GoogleFonts.poppins(fontSize: 25, fontWeight: FontWeight.bold)),
-        SizedBox(
+            style: GoogleFonts.poppins(fontSize: 25, fontWeight: FontWeight.bold)),
+       const SizedBox(
           height: 30.0,
         ),
         Row(

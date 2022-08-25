@@ -31,8 +31,6 @@ class DogBloc extends Bloc<DogEvent, DogState> {
 
 
    loadData() async {
-    //final listBreeds = await dogsRespository.getAllBreeds();
-    //final randomImages = await dogsRespository.getRandomImagesOfDogs();
 
      final response = await Future.wait([
       dogsRespository.getAllBreeds(),
